@@ -1,9 +1,8 @@
 import ArrayList from "./Arraylist";
 
 
-
 describe("ArrayList", () => {
-  let list: ArrayList<number>;
+  let list;
 
   beforeEach(() => {
     list = new ArrayList<number>();
