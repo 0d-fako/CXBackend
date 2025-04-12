@@ -28,18 +28,18 @@ let scoreTwo = 75;
 let scoreThree = 90;
 let scoreFour = 85;
 let scoreFive = 95;
-let avgScore = (scoreOne + scoreTwo + scoreThree + scoreFour + score5) / 5;
-console.log(`The average score is ${averageScore}.`);
+let avgScore = (scoreOne + scoreTwo + scoreThree + scoreFour + scoreFive) / 5;
+console.log(`The average score is ${avgScore}.`);
 
 // 6. Create an array of favorite foods and display the first and last items
-let favoriteFoods = ["Jollof Rice", "Pizza", "Pasta", "Suya", "Fried Chicken"];
-console.log(`First food: ${favoriteFoods[0]}`);
-console.log(`Last food: ${favoriteFoods[favoriteFoods.length - 1]}`);
+let foods = ["Jollof Rice", "Pizza", "Pasta", "Suya", "Fried Chicken"];
+console.log(`First food: ${foods[0]}`);
+console.log(`Last food: ${foods[foods.length - 1]}`);
 
 // 7. Add two more food items: one at the beginning and one at the end
-favoriteFoods.unshift("Pounded Yam");
-favoriteFoods.push("Ice Cream");
-console.log("Updated list of favorite foods:", favoriteFoods);
+foods.unshift("Pounded Yam");
+foods.push("Ice Cream");
+console.log("Updated list of favorite foods:", foods);
 
 // 8-10. Create three arrays with 10 student names each
 let jssOne = ["Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Hannah", "Ian", "Jack"];
