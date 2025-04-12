@@ -12,7 +12,7 @@ console.log(quote.toLowerCase());
 
 // 3. Reverse a word
 let wordBefore = "JavaScript";
-let wordAfter = word.split("").reverse().join("");
+let wordAfter = wordBefore.split("").reverse().join("");
 console.log(wordAfter);
 
 // 4. Store the price of 3 items and calculate the total
@@ -42,9 +42,9 @@ foods.push("Ice Cream");
 console.log("Updated list of favorite foods:", foods);
 
 // 8-10. Create three arrays with 10 student names each
-let jssOne = ["Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Hannah", "Ian", "Jack"];
-let jssTwo = ["Kate", "Leo", "Mia", "Nathan", "Olivia", "Peter", "Quinn", "Rachel", "Sam", "Tom"];
-let jssThree = ["Uma", "Victor", "Will", "Xander", "Yasmine", "Zane", "Abigail", "Benjamin", "Chloe", "Daniel"];
+let jssOne = ["Ibrahim", "Bobbo", "Charles", "David", "Emma", "Frank", "Grace", "Hannah", "Ayo", "Jack"];
+let jssTwo = ["Kate", "Ola", "Femi", "Nathan", "Olivia", "Peter", "Queen", "Rachel", "Sam", "Tosin"];
+let jssThree = ["Uma", "Victor", "Will", "Chioma", "Ifeanyi", "Zane", "Abigail", "Benjamin", "Chloe", "Daniel"];
 
 console.log("JSS One Students:", jssOne);
 console.log("JSS Two Students:", jssTwo);
