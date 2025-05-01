@@ -4,7 +4,7 @@ const PORT = 3000;
 
 app.use(express.json()); 
 
-[
+const drugs = [
 
     { id: 1, name: "Amoxicillin", category: "Antibiotic", dosageMg: 500, isPrescriptionOnly: true, stock: 120, manufacturer: "Pfizer" },
    
