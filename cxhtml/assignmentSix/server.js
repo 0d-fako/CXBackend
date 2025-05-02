@@ -4,6 +4,10 @@ const PORT = 3000;
 
 app.use(express.json()); 
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the Drug Inventory API!');
+});
+
 const drugs = [
 
     { id: 1, name: "Amoxicillin", category: "Antibiotic", dosageMg: 500, isPrescriptionOnly: true, stock: 120, manufacturer: "Pfizer" },
@@ -63,6 +67,11 @@ app.get('/drugs/names', (req, res) => {
 // 3. POST /drugs/by-category
 app.post('/drugs/by-category', (req, res) => {
     const { category } = req.body;
+
+    if (!category) {
+        return res.status(400).json({ error: "Category is required" });
+    }
+
     const filteredDrugs = drugs.filter(drug => drug.category === category);
     res.json(filteredDrugs);
 });
