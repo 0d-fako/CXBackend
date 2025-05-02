@@ -109,6 +109,10 @@ app.get('/drugs/non-prescription', (req, res) => {
 // 9. POST /drugs/manufacturer-count
 app.post('/drugs/manufacturer-count', (req, res) => {
     const { manufacturer } = req.body;
+
+    if (!manufacturer) {
+        return res.status(400).json({ error: "Manufacturer is reqired"});
+    }
     const count = drugs.filter(drug => drug.manufacturer === manufacturer).length;
     res.json({ manufacturer, count });
 });
