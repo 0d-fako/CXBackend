@@ -14,4 +14,9 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
+
+const itemRoutes = require("./api/ItemController");
+
+
+app.use("/items", itemRoutes);
 app.listen(5000, () => console.log("Server running on port 5000"));
