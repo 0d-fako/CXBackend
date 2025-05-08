@@ -1,4 +1,4 @@
-const ItemModel = require("../models/Item");
+const Item = require("../models/Item");
 
 app.post("/items", async (req, res) => {
   try {
