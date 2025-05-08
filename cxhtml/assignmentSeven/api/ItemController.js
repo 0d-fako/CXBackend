@@ -1,6 +1,5 @@
 const ItemModel = require("../models/Item");
 
-
 app.post("/items", async (req, res) => {
   try {
     const newItem = new Item(req.body);
@@ -11,7 +10,6 @@ app.post("/items", async (req, res) => {
   }
 });
 
-
 app.get("/items/unclaimed", async (req, res) => {
   try {
     const items = await Item.find({ claimed: false });
@@ -20,7 +18,6 @@ app.get("/items/unclaimed", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
 
 app.get("/items/:id", async (req, res) => {
   try {
@@ -31,7 +28,6 @@ app.get("/items/:id", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-
 
 app.put("/items/:id", async (req, res) => {
   try {
@@ -50,6 +46,15 @@ app.delete("/items/:id", async (req, res) => {
     const deletedItem = await Item.findByIdAndDelete(req.params.id);
     if (!deletedItem) return res.status(404).json({ error: "Item not found" });
     res.json({ message: "Item deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get("/items", async (req, res) => {
+  try {
+    const items = await Item.find();
+    res.json(items);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
