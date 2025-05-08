@@ -4,7 +4,7 @@ const Item = require("../models/Item");
 const router = express.Router();
 
 // Add a found item
-router.post("/", async (req, res) => {
+router.post("/items", async (req, res) => {
   try {
     const newItem = new Item(req.body);
     await newItem.save();
@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
 });
 
 // View all items
-router.get("/", async (req, res) => {
+router.get("/items", async (req, res) => {
   try {
     const items = await Item.find();
     res.json(items);
@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-app.get("/items/unclaimed", async (req, res) => {
+router.get("/items/unclaimed", async (req, res) => {
   try {
     const items = await Item.find({ claimed: false });
     res.json(items);
@@ -32,5 +32,18 @@ app.get("/items/unclaimed", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+
+// Get a specific item by ID
+router.get("/items/:id", async (req, res) => {
+  try {
+    const item = await Item.findById(req.params.id);
+    if (!item) return res.status(404).json({ error: "Item not found" });
+    res.json(item);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
 module.exports = router;
