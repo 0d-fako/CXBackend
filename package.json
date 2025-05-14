@@ -17,7 +17,6 @@
     "url": "https://github.com/0d-fako/CXBackend/issues"
   },
   "homepage": "https://github.com/0d-fako/CXBackend#readme",
-  "description": "",
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "jest": "^29.7.0",
@@ -31,5 +30,6 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "mongoose": "^8.14.1"
-  }
+  },
+  "description": ""
 }
