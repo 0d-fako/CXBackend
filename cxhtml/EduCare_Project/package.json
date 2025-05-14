@@ -11,5 +11,8 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "educare_project": "file:"
+  }
 }
