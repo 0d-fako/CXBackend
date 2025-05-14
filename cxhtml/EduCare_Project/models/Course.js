@@ -6,5 +6,9 @@ const courseSchema = mongoose.Schema({
     courseDescription: {type : String},
     instructor: { type: mongoose.Schema.Tyoes.ObjectId, ref : "User", required : true},
     
-
 })
+
+const Course = mongoose.model("Course", courseSchema);
+
+export default Course;
+
