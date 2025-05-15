@@ -1,15 +1,24 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import User from "../../models/User.js";
+import Student from "../../models/Student.js";
+import Instructor from "../../models/Instructor.js";
+import Admin from "../../models/Admin.js";
 
 const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password } = req?.body;
 
-    const user = await User.findOne({ email });
+    if (!email || !password) {
+      return res.status(400).json({ error: "Email and password are required" });
+    }
+
+    let user =
+      (await Student.findOne({ email })) ||
+      (await Instructor.findOne({ email })) ||
+      (await Admin.findOne({ email }));
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
       return res.status(401).json({ error: "Invalid email or password" });
@@ -31,7 +40,7 @@ router.post("/", async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(500).json({ error: "error logging in" });
+    res.status(500).json({ error: "Error logging in" });
   }
 });
 
