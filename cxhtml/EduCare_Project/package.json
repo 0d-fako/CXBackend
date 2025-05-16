@@ -10,9 +10,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "description": "",
   "dependencies": {
-    "educare_project": "file:"
+    "bcrypt": "^6.0.0",
+    "educare_project": "file:",
+    "jsonwebtoken": "^9.0.2"
   }
 }

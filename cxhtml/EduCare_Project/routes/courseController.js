@@ -1,9 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import Student from "../../models/Student.js";
-import Instructor from "../../models/Instructor.js";
-import Admin from "../../models/Admin.js";
-import Course from "../models/Course.js";
+import Instructor from "../models/Instructor";
+import Course from "../models/Course";
 
 const router = express.Router();
 
