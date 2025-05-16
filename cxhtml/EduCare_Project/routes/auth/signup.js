@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import express from "express";
 import bcrypt from "bcrypt";
 import Student from "../../models/Student.js";
 import Instructor from "../../models/Instructor.js";
