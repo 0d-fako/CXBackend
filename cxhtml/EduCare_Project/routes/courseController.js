@@ -54,6 +54,7 @@ router.post("/createCourse", validateInstructor, async (req, res) => {
       .status(201)
       .json({ message: "Course created successfully", course: newCourse });
   } catch (error) {
+    console.error({ message: error });
     return res.status(500).json({ message: "Error creating course" });
   }
 });
