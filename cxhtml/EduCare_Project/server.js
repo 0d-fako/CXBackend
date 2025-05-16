@@ -28,6 +28,10 @@ app.use("/api/auth/signup", signupRoute);
 app.use("/api/courses", courseRoute);
 app.use("/api/enrollments", enrollmentRoute);
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the EduCare API!");
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
