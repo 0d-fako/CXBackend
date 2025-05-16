@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import Instructor from "../models/Instructor";
-import Course from "../models/Course";
+import Instructor from "../models/Instructor.js";
+import Course from "../models/Course.js";
 
 const router = express.Router();
 
@@ -56,3 +56,5 @@ router.post("/createCourse", validateInstructor, async (req, res) => {
     return res.status(500).json({ message: "Error creating course" });
   }
 });
+
+export default router;
