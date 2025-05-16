@@ -47,7 +47,10 @@ router.post("/createCourse", validateInstructor, async (req, res) => {
       instructor: instructorId,
     });
 
+    instructor.coursesTaught.push(newCourse._id);
+
     await newCourse.save();
+    await instructor.save();
 
     return res
       .status(201)
