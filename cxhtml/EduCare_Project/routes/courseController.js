@@ -3,6 +3,7 @@ import express from "express";
 import bcrypt from "bcrypt";
 import Instructor from "../models/Instructor.js";
 import Course from "../models/Course.js";
+import Enrollment from "../models/Enrollment.js";
 
 const router = express.Router();
 
@@ -106,6 +107,33 @@ router.get("/instructor/:id", async (req, res) => {
 
 router.get(":id/students", async (req, res) => {
   try {
+    const courseId = req.params.id;
+
+    const existingCourse = await Course.findById(courseId);
+
+    if (!existingCourse) {
+      return res.status(404).json({ message: "Course not found" });
+    }
+
+    const enrollments = await Enrollment.find({ course: courseId }).populate(
+      "student",
+      "name email"
+    );
+
+    if (enrollments.length) {
+      return res
+        .status(404)
+        .json({ message: "No student enrolled in this course" });
+    }
+
+    const students = enrollments.map((enrollment) => ({
+      name: enrollment.student.name,
+      email: enrollment.student.email,
+      grade: enrollment.grade,
+      dateEnrolled: enrollment.dateEnrolled,
+    }));
+
+    return res.status(200).json({ students });
   } catch (error) {
     console.log(error);
     return res
