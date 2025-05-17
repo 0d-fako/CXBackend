@@ -1,4 +1,3 @@
-import { isExpression } from "typescript";
 import Student from "../models/Student.js";
 import express from "express";
 
@@ -14,7 +13,7 @@ router.get("/enrollments", async (req, res) => {
     );
     return res.status(200).json({ students });
   } catch (error) {
-    console.error("Fetching Enrollments Error:", error);
+    console.error(error);
     return res.status(500).json({ message: "Failed to retrieve enrollments." });
   }
 });
