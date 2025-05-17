@@ -78,26 +78,39 @@ router.get("/instructor/:id", async (req, res) => {
   try {
     const instructorId = req.params.id;
 
-    const existingInstructor = await User.findOne({ _id: instructorId });
-
+    const existingInstructor = await Instructor.findById(instructorId);
     if (!existingInstructor) {
       return res
         .status(404)
         .json({ message: "Instructor not registered on system" });
     }
 
-    const courses = await Course.find({ instrutor: instructorId });
+    const courses = await Course.find({ instructor: instructorId }).select(
+      "courseCode courseTitle"
+    );
 
     if (!courses.length) {
-      return res.status(404).json({ message : "No courses found for instructor"});
+      return res
+        .status(404)
+        .json({ message: "No courses found for instructor" });
     }
 
-    return res.status(200).json({courses})
+    return res.status(200).json({ courses });
   } catch (error) {
     console.log(error);
     return res
       .status(500)
       .json({ message: "Error fetching courses specify to instructor" });
+  }
+});
+
+router.get(":id/students", async (req, res) => {
+  try {
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ message: "Unable to get students enrolled in this course" });
   }
 });
 
