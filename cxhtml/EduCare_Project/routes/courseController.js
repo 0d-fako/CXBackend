@@ -105,7 +105,7 @@ router.get("/instructor/:id", async (req, res) => {
   }
 });
 
-router.get(":id/students", async (req, res) => {
+router.get("/:id/students", async (req, res) => {
   try {
     const courseId = req.params.id;
 
