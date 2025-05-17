@@ -120,7 +120,7 @@ router.get(":id/students", async (req, res) => {
       "name email"
     );
 
-    if (enrollments.length) {
+    if (!enrollments.length) {
       return res
         .status(404)
         .json({ message: "No student enrolled in this course" });
